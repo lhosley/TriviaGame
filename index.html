@@ -7,6 +7,7 @@
   <title>American Dad! Trivia</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
   />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 
 <style>
 #container{
-
+    font-family: 'Roboto Mono', monospace;
 	text-align: center;
 	background-image: url("dust_scratches.png");
 	
@@ -48,13 +49,15 @@
 	
 
   .question{
+      font-size: 20px;
+      font-weight: bolder;
 		display: inline;
-	  border: 6px solid red;
+	  border: 4px solid red;
   }
 
   .answers{
 	  display: inline;
-	  border: 6px solid blue;
+	  border: 3px solid blue;
   }
  
 	
@@ -69,7 +72,7 @@
 
 var myQuestions = [
     {
-        question: "QUESTION 1: What is the name of Stan's unpublished children's book series?",
+        question: " QUESTION 1: What is the name of Stan's unpublished children's book series? ",
         answers: {
 			a: 'Patriot Pigeon',
             b: 'Eager Eagle',
@@ -79,7 +82,7 @@ var myQuestions = [
         correctAnswer: 'a'
     },
     {
-        question: "What is Steve's middle name?",
+        question: " QUESTION 2: What is Steve's middle name? ",
         answers: {
             a: 'Anita',
             b: 'Catherine',
@@ -89,7 +92,7 @@ var myQuestions = [
         correctAnswer: 'a'
     },
 	{
-        question: "Which government agency does Stan work for?",
+        question: " QUESTION 3: Which government agency does Stan work for? ",
         answers: {
             a: 'DEA',
             b: 'FBI',
@@ -99,7 +102,7 @@ var myQuestions = [
         correctAnswer: 'd'
 	},
 	{
-        question: "Who plays Stan's boss?",
+        question: " QUESTION 4: Who plays Stan's boss? ",
         answers: {
             a: 'Ian McKellen',
             b: 'Patrick Stewart',
@@ -109,7 +112,7 @@ var myQuestions = [
         correctAnswer: 'b'
 	},
 	{
-        question: "What are Steve and Roger's fictional detectives called?",
+        question: " QUESTION 5: What are Steve and Roger's fictional detectives called? ",
         answers: {
             a: 'Steve and the Alien',
             b: 'Jake and the Fatman',
@@ -129,20 +132,20 @@ generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
     function showQuestions(questions, quizContainer){
-        // we'll need a place to store the output and the answer choices
+        // a place to store the output and the answer choices
         var output = [];
         var answers;
 
-        // for each question...
+        // for each question
         for(var i=0; i<questions.length; i++){
             
             // first reset the list of answers
             answers = [];
 
-            // for each available answer...
+            // for each available answer
             for( letter in questions[i].answers){
 
-                // ...add an html radio button
+                // add an html radio button
                 answers.push(
                     '<label>' 
                         + '<input type="radio" name="question'+i+'" value="'+ letter +'">' 
@@ -154,7 +157,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
                 );
             }
 
-            // add this question and its answers to the output
+            // add this question and its answers to output
             output.push(
                 '<p>'+'<div class="question">' + questions[i].question + '</div>'+'</p>'
                 + '<div class="answers">' + answers.join('    ') + '</div>'
